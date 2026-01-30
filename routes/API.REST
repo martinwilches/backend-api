@@ -1,4 +1,6 @@
 http://localhost:3000/api/info
 
-# USER ROUTES
+###
+
+# GET USERS
 http://localhost:3000/api/users

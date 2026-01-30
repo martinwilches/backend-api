@@ -89,3 +89,13 @@ Ejemplos:
 - Token de autenticación
 - Idioma
 - Navegador
+
+### Cookies y sesiones (estado entre requests)
+
+HTTP es stateless -> no recuerda nada entre requests.
+
+Las cookies y las sesiones sirven para:
+
+- Mantener login
+- Recordad usuario
+- Guardar preferencias
