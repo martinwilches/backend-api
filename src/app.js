@@ -1,12 +1,15 @@
 import express from 'express'
 
-import healthCheck from './controllers/health.controller.js'
+import info from './controllers/info.controller.js'
+import userRouter from '../routes/user.routes.js'
 
 const app = express()
 
 // middleware para leer JSON
 app.use(express.json())
 
-app.get('/health', healthCheck)
+// middleware para rutas
+app.get('/api/info', info)
+app.use('/api/users', userRouter)
 
-export default app
+export default app 

@@ -47,12 +47,16 @@ Incluye:
 
 ## HTTP
 
+Idioma que hablan el frontend (cliente) y el backend (servidor).
+
+### Método HTTP
+
 Métodos principales
 
 | Método | Ejemplo |
 | -------- | --------- |
 | GET | Obtener usuarios |
-| POST | Creare usuario |
+| POST | Crear usuario |
 | PUT | Actualizar perfil |
 | PATCH | Actualizar email |
 | DELETE | Eliminar usuario |
@@ -72,3 +76,16 @@ Códigos de estado claves
 - 403 UNAUTHORIZED
 - 404 NOT FOUND
 - 500 SERVER ERROR
+
+### Headers y Cookies
+
+#### Headers
+
+Los headers son información extra que se incluye en cada petición (No son los datos principales).
+
+Ejemplos:
+
+- Tipo de contenido
+- Token de autenticación
+- Idioma
+- Navegador
