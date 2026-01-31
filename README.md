@@ -90,12 +90,12 @@ Ejemplos:
 - Idioma
 - Navegador
 
-### Cookies y sesiones (estado entre requests)
+### Cookies (estado entre requests)
 
 HTTP es stateless -> no recuerda nada entre requests.
 
-Las cookies y las sesiones sirven para:
+Las cookies sirven para:
 
 - Mantener login
-- Recordad usuario
+- Recordar usuario
 - Guardar preferencias

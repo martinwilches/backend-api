@@ -1,5 +1,5 @@
 class User {
-    static getUsers(req, res) {
+    static users(req, res) {
         // creación de cookie llamada user con el valor martin
         res.cookie('user', 'martin', {
             httpOnly: true // impiden que scripts del lado del cliente accedan a la cookie
@@ -11,6 +11,15 @@ class User {
                 id: 1,
                 nombre: 'Martin'
             }
+        })
+    }
+
+    static profile(req, res) {
+        // acceder al valor de la cookie
+        const cookie = req.cookies
+        
+        res.json({
+            token: cookie
         })
     }
 }
