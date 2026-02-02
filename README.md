@@ -99,3 +99,66 @@ Las cookies sirven para:
 - Mantener login
 - Recordar usuario
 - Guardar preferencias
+
+## REST
+
+REST es un conjunto de principios para diseñar APIs
+
+Una API REST
+
+- Usa recursos, no acciones
+- Usa métodos HTTP correctamente
+- Devuelve códigos de estado correctos
+- Es stateless
+- Tiene URLs claros y predecibles
+
+```http
+GET     /users
+POST    /users
+GET     /users/1
+PATCH   /users/1
+DELETE  /users/1
+```
+
+> El verbo va en el método no en la URL
+
+### Recursos y endpoints
+
+Un recurso es un sustantivo:
+
+- users
+- products
+
+> Siempre en plural sin verbos
+
+Sub-recursos
+
+```http
+GET /users/1/orders
+```
+
+> Obtener las ordenes del usuario 1
+
+### Versionado de API
+
+Evita romper clientes cuando cambia la API
+
+```http
+/api/v1/users
+/api/v2/users
+```
+
+> Se crea /v2 se mantiene /v1 cuando algo falla
+
+### Errores coherentes
+
+Error REST correcto
+
+```js
+res.status({
+    error: {
+        message: 'Usuario no encontrado',
+        code: 'USER_NOT_FOUND'
+    }
+})
+```
