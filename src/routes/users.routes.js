@@ -10,7 +10,7 @@ router.get('/:id', userController.getById)
 // crear usuario
 router.post('/', userController.create)
 
-// // actualizar usuario
+// actualizar usuario
 router.put('/:id', userController.update)
 
 // eliminar usuario

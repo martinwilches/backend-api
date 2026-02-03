@@ -1,4 +1,3 @@
-import usersService from '../services/users.service.js'
 import userService from '../services/users.service.js'
 
 /************
@@ -20,7 +19,7 @@ async function getAll(req, res) {
 }
 
 async function getById(req, res) {
-    const user = await usersService.getById(req.params?.id)
+    const user = await userService.getById(req.params?.id)
 
     res.json(user)
 }
