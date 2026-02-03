@@ -1,70 +1,63 @@
-let users = [{
-    id: 1,
-    nombre: 'Martin'
-}]
+import usersService from '../services/users.service.js'
+import userService from '../services/users.service.js'
 
-export function getAll(req, res) {
+/************
+ * Controller
+ * - Solo HTTP
+ * - Lee req, envía res
+ * - Maneja status code
+*/
+
+async function getAll(req, res) {
     // creación de cookie llamada `user` con el valor `martin`
     res.cookie('user', 'martin', {
         httpOnly: true // impiden que scripts del lado del cliente accedan a la cookie
     })
 
-    if (!users.length) {
-        return res.status(404).json({
-            code: 'USERS_NOT_FOUND',
-            message: 'Usuarios no encontrados'
-        })
-    }
+    const users = await userService.getAll()
 
     res.json(users)
 }
 
-export function getById(req, res) {
-    const user = users.find(u => u.id == req.params.id) 
-
-    if (!user) {
-        return res.status(404).json({
-            code: 'USER_NOT_FOUND',
-            message: 'Usuario no encontrado'
-        })
-    }
+async function getById(req, res) {
+    const user = await usersService.getById(req.params?.id)
 
     res.json(user)
 }
 
-export function create(req, res) {
-    const user = { id: users.length + 1, ...req.body }
-    users.push(user)
+async function create(req, res) {
+    const user = await userService.create(req.body)
 
     res.status(201).json(user)
 }
 
-export function update(req, res) {
-    const user = users.find(u => u.id == req.params.id)
+async function update(req, res) {
+    const user = await userService.update(req.params?.id, req.body)
 
-    if (!user) {
-        return res.status(404).json({
-            code: 'USER_NOT_FOUND',
-            message: 'Usuario no encontrado'
-        })
-    }
-
-    // copiar las propiedades de un objeto fuente a un objeto destino (target, source)
-    Object.assign(user, req.body)
     res.json(user)
 }
 
-export function remove(req, res) {
-    users = users.filter(u => u.id != req.params.id)
+async function remove(req, res) {
+    await userService.remove(req.params?.id)
 
     res.status(204).send()
 }
 
-export function profile(req, res) {
+async function profile(req, res) {
     // acceder al valor de la cookie
     const cookie = req.cookies
-    
+
     res.json({
         token: cookie
     })
 }
+
+export default {
+    getAll,
+    getById,
+    create,
+    update,
+    remove,
+    profile
+}
+

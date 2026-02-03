@@ -1,28 +1,21 @@
 import express from 'express'
-import {
-    getAll,
-    getById,
-    create,
-    update,
-    remove,
-    profile
-} from '../controllers/users.controller.js'
+import userController from '../controllers/users.controller.js'
 
 const router = express.Router()
 
 // obtener usuario(s)
-router.get('/', getAll)
-router.get('/:id', getById)
+router.get('/', userController.getAll)
+router.get('/:id', userController.getById)
 
 // crear usuario
-router.post('/', create)
+router.post('/', userController.create)
 
-// actualizar usuario
-router.put('/:id', update)
+// // actualizar usuario
+router.put('/:id', userController.update)
 
 // eliminar usuario
-router.delete('/:id', remove)
+router.delete('/:id', userController.remove)
 
-router.get('/profile', profile)
+router.get('/profile', userController.profile)
 
 export { router }

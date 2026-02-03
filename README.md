@@ -162,3 +162,15 @@ res.status({
     }
 })
 ```
+
+## Arquitectura del proyecto
+
+Cada parte del código debe tener una sola responsabilidad
+
+### Capas de una API Backend
+
+| Capa | Responsabilidad |
+| ---- | --------------- |
+| Controller | HTTP (req, res) |
+| Service | Lógica de negocio | 
+| Repository | Acceso a datos | 
