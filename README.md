@@ -177,17 +177,30 @@ Cada parte del código debe tener una sola responsabilidad
 
 ## Validación y seguridad básica
 
-## Validación de datos
+### Validación de datos
 
 - No confiar nunca en lo que viene del cliente
 - Rechazar datos malos antes de que entren al sistema
 - Responder errores claros y consistentes
 
-## Sanitización (limpiar datos)
+### Sanitización (limpiar datos)
 
 Limpiar datos peligrosos o innecesarios:
 
 - Espacios extra
 - HTML
 - Scripts
-- SQL / NoSQL injection básica
+
+## Autenticación y autorización
+
+### Autenticación
+
+- Login
+- Password
+- Token
+
+### Autorización
+
+- Roles
+- Permisos
+- Acceso a rutas

@@ -21,4 +21,6 @@ router.delete('/:id', userController.remove)
 
 router.get('/profile', userController.profile)
 
-export { router }
+export {
+    router
+}
