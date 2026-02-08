@@ -1,5 +1,12 @@
 import authService from '../services/auth.service.js'
 
+/************
+ * CONTROLLER
+ * - Solo HTTP
+ * - Lee req, envía res
+ * - Maneja status code
+*/
+
 class Auth {
     static async login(req, res) {
         const { email, password } = req.body

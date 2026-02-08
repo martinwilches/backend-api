@@ -1,5 +1,13 @@
 import authRepository from '../repositories/auth.repository.js'
 
+/*********
+ * SERVICE
+ * - Validaciones
+ * - Decisiones
+ * - Orquestar datos
+ * - Lanzar errores
+*/
+
 const validateCredentials = (email, password) => {
     if (!email || !password) {
         const error = new Error('El email y la contraseña son requeridos')

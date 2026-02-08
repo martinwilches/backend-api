@@ -3,6 +3,12 @@ import jwt from 'jsonwebtoken'
 
 import { JWT_KEY } from '../config/env.js'
 
+/************
+ * REPOSITORY
+ * - Leer/Escribir datos
+ * - DB, arrays, API's externas
+*/
+
 const users = []
 
 const login = (email, password) => {

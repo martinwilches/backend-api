@@ -3,7 +3,6 @@ import cookieParser from 'cookie-parser'
 
 import info from './controllers/info.controller.js'
 
-import { router as userRouter } from './routes/users.routes.js'
 import { router as authRouter } from './routes/auth.routes.js'
 
 import { errorMiddleware } from './middlewares/error.middleware.js'
@@ -19,7 +18,6 @@ app.use(cookieParser())
 // middleware para rutas
 app.get('/api/v1/info', info)
 app.use('/api/v1/auth', authRouter) // autenticación / autorización
-app.use('/api/v1/users', userRouter) // gestión de usuarios
 
 // middleware manejo de errores centralizado (se ubica al final de todos los demás middleware)
 app.use(errorMiddleware)
