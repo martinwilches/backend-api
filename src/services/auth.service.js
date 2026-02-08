@@ -1,30 +1,22 @@
 import authRepository from '../repositories/auth.repository.js'
 
-const login = async (email, password) => {
+const validateCredentials = (email, password) => {
     if (!email || !password) {
-        throw {
-            message: 'El email y la contraseña son requeridos',
-            code: 'INVALID_CREDENTIALS',
-            status: 400
-        }
+        const error = new Error('El email y la contraseña son requeridos')
+        error.code = 'INVALID_DATA'
+        error.status = 400
+        throw error
     }
+}
 
-    authRepository.login(email, password)
+const login = async (email, password) => {
+    validateCredentials(email, password)
+    return authRepository.login(email, password)
 }
 
 const register = (email, password) => {
-    if (!email || !password) {
-        throw {
-            message: 'El email y la contraseña son requeridos',
-            code: 'INVALID_CREDENTIALS',
-            status: 400
-        }
-    }
-
+    validateCredentials(email, password)
     return authRepository.register(email, password)
 }
 
-export default {
-    login,
-    register
-}
+export default { login, register }

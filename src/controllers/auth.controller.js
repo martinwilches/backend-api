@@ -1,10 +1,12 @@
 import authService from '../services/auth.service.js'
 
 class Auth {
-    static login(req, res) {
+    static async login(req, res) {
         const { email, password } = req.body
 
-        authService.login(email, password)
+        const authUser = await authService.login(email, password)
+
+        res.json(authUser)
     }
 
     static register(req, res) {
@@ -12,9 +14,7 @@ class Auth {
 
         const user = authService.register(email, password)
 
-        res.status(201).json({
-            user
-        })
+        res.status(201).json(user)
     }
 }
 

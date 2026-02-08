@@ -2,8 +2,10 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 
 import info from './controllers/info.controller.js'
-import { router as userRouter}  from './routes/users.routes.js'
-import { router as authRouter }  from './routes/auth.routes.js'
+
+import { router as userRouter } from './routes/users.routes.js'
+import { router as authRouter } from './routes/auth.routes.js'
+
 import { errorMiddleware } from './middlewares/error.middleware.js'
 
 const app = express()
