@@ -1,26 +1,10 @@
 import express from 'express'
-import userController from '../controllers/users.controller.js'
 
-import { validateMiddleware } from '../middlewares/validate.middleware.js'
-import { createUser } from '../validators/users.validator.js'
+import User from '../controllers/users.controller.js'
+import auth from '../middlewares/auth.middleware.js' // auth middleware
 
 const router = express.Router()
 
-// obtener usuario(s)
-router.get('/', userController.getAll)
-router.get('/:id', userController.getById)
+router.get('/profile', auth, User.profile)
 
-// crear usuario (validador // middleware)
-router.post('/', createUser, validateMiddleware, userController.create)
-
-// actualizar usuario
-router.put('/:id', userController.update)
-
-// eliminar usuario
-router.delete('/:id', userController.remove)
-
-router.get('/profile', userController.profile)
-
-export {
-    router
-}
+export { router }

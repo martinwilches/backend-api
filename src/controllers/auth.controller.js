@@ -11,9 +11,9 @@ class Auth {
     static async login(req, res) {
         const { email, password } = req.body
 
-        const authUser = await authService.login(email, password)
+        const token = await authService.login(email, password)
 
-        res.json(authUser)
+        res.json(token)
     }
 
     static register(req, res) {

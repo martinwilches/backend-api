@@ -1,9 +1,8 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 
-import info from './controllers/info.controller.js'
-
 import { router as authRouter } from './routes/auth.routes.js'
+import { router as usersRouter } from './routes/users.routes.js'
 
 import { errorMiddleware } from './middlewares/error.middleware.js'
 
@@ -16,8 +15,8 @@ app.use(express.json())
 app.use(cookieParser())
 
 // middleware para rutas
-app.get('/api/v1/info', info)
 app.use('/api/v1/auth', authRouter) // autenticación / autorización
+app.use('/api/v1/users', usersRouter)
 
 // middleware manejo de errores centralizado (se ubica al final de todos los demás middleware)
 app.use(errorMiddleware)

@@ -40,13 +40,7 @@ const login = (email, password) => {
         { expiresIn: '1hr' }
     )
 
-    return {
-        user: {
-            id: user.id,
-            email: user.email,
-        },
-        token,
-    }
+    return token
 }
 
 const register = (email, password) => {
