@@ -17,9 +17,9 @@ class Auth {
     }
 
     static register(req, res) {
-        const { email, password } = req.body
+        const { email, password, role } = req.body
 
-        const user = authService.register(email, password)
+        const user = authService.register(email, password, role)
 
         res.status(201).json(user)
     }

@@ -7,7 +7,7 @@ import { JWT_KEY } from '../config/env.js'
  * REPOSITORY
  * - Leer/Escribir datos
  * - DB, arrays, API's externas
-*/
+ */
 
 const users = []
 
@@ -34,7 +34,8 @@ const login = (email, password) => {
     // crear token de autenticación
     const token = jwt.sign(
         {
-            userId: user.id,
+            id: user.id,
+            role: user.role
         },
         JWT_KEY,
         { expiresIn: '1hr' }
@@ -43,7 +44,7 @@ const login = (email, password) => {
     return token
 }
 
-const register = (email, password) => {
+const register = (email, password, role) => {
     // encriptar contraseña
     const salt = bcrypt.genSaltSync(10)
     const hashPassword = bcrypt.hashSync(password, salt)
@@ -52,6 +53,7 @@ const register = (email, password) => {
         id: users.length + 1,
         email,
         password: hashPassword,
+        role: role || 'user',
     }
 
     users.push(newUser)

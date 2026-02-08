@@ -22,9 +22,9 @@ const login = async (email, password) => {
     return authRepository.login(email, password)
 }
 
-const register = (email, password) => {
+const register = (email, password, role) => {
     validateCredentials(email, password)
-    return authRepository.register(email, password)
+    return authRepository.register(email, password, role)
 }
 
 export default { login, register }
